@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPM Sefa Bot</title>
+    <style>
+        body { font-family: sans-serif; background: #0f0f0f; color: white; text-align: center; margin: 0; padding: 20px; }
+        #bot-container { background: #1a1a1a; padding: 20px; border-radius: 20px; border: 1px solid #333; max-width: 350px; margin: auto; }
+        .btn { border: none; color: white; padding: 12px; margin: 8px 0; border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%; display: block; text-decoration: none; font-size: 15px; }
+        .btn-insta { background: linear-gradient(45deg, #f09433, #bc1888); }
+        .btn-blue { background: #2980b9; }
+        /* GERİ DÖN BUTONU - EN ÜSTE ALINDI VE PARLIYOR */
+        .btn-back { background: #e74c3c !important; border: 2px solid #fff; margin-bottom: 20px !important; }
+        .hidden { display: none !important; }
+        .price-list { background: #252525; padding: 10px; border-radius: 10px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div id="bot-container">
+    <div id="step1">
+        <h2 style="color: #3498db;">CPM SEFA</h2>
+        <a href="https://play.google.com/store/apps/details?id=com.olzhas.carparking.multyplayer" class="btn" style="background:#27ae60">CPM İNDİR</a>
+        <a href="https://instagram.com/jakobss66" class="btn btn-insta">TAKİP ET</a>
+        <button class="btn btn-blue" onclick="showStep2()">BAŞLAT</button>
+    </div>
+
+    <div id="step2" class="hidden">
+        <h3>SEÇİM YAPIN</h3>
+        <button class="btn btn-blue" onclick="selectOption(1)">1 - Bedava Hesap</button>
+        <button class="btn btn-blue" onclick="selectOption(2)">2 - Paralı Hesap</button>
+    </div>
+
+    <div id="step3_free" class="hidden">
+        <button class="btn btn-back" onclick="goBack()">⬅ GERİ DÖN (ANA MENÜ)</button>
+        <h3>🎁 Bedava Hesap</h3>
+        <p>Yasak olduğu için DM'den verilecektir.</p>
+        <a href="https://instagram.com/jakobss66" class="btn btn-insta">DM GÖNDER</a>
+    </div>
+
+    <div id="step4_paid" class="hidden">
+        <button class="btn btn-back" onclick="goBack()">⬅ GERİ DÖN (ANA MENÜ)</button>
+        <h3 style="color: #f1c40f;">💎 Fiyat Listesi</h3>
+        <div class="price-list">
+            <p>Mini: 100 TL / Efsane: 200 TL / Ultra: 300 TL</p>
+        </div>
+        <a href="https://instagram.com/jakobss66" class="btn btn-insta">SATIN AL (DM)</a>
+    </div>
+</div>
+
+<script>
+    function showStep2() { document.getElementById('step1').classList.add('hidden'); document.getElementById('step2').classList.remove('hidden'); }
+    function selectOption(choice) {
+        document.getElementById('step2').classList.add('hidden');
+        if(choice === 1) document.getElementById('step3_free').classList.remove('hidden');
+        else document.getElementById('step4_paid').classList.remove('hidden');
+    }
+    function goBack() {
+        document.getElementById('step3_free').classList.add('hidden');
+        document.getElementById('step4_paid').classList.add('hidden');
+        document.getElementById('step2').classList.remove('hidden');
+    }
+</script>
+</body>
+</html>
